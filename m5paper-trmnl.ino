@@ -25,12 +25,12 @@
 #include <M5Unified.h>  // Includes M5GFX automatically
 #include <ArduinoJson.h>
 
-#define TRMNL_API_KEY "11fyz3tBk1LVOqJgUb0I3g"
+#define TRMNL_API_KEY "TRMNL_API_KEY"
 #define M5PAPER_WAKE_BUTTON 39
 #define M5EPD_MAIN_PWR_PIN 2
 
-const char* WIFI_SSID = "DOK-C";
-const char* WIFI_PASS = "MolGF6131";
+const char* WIFI_SSID = "network-name";
+const char* WIFI_PASS = "network-passwd";
 
 M5Canvas canvas(&M5.Display);
 HTTPClient http;
