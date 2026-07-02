@@ -25,12 +25,14 @@
 #include <M5Unified.h>  // Includes M5GFX automatically
 #include <ArduinoJson.h>
 
-#define TRMNL_API_KEY "11fyz3tBk1LVOqJgUb0I3g"
+#include "secrets.h"
+
+#define TRMNL_API_DISPLAY SERVER_URL
 #define M5PAPER_WAKE_BUTTON 39
 #define M5EPD_MAIN_PWR_PIN 2
 
-const char* WIFI_SSID = "DOK-C";
-const char* WIFI_PASS = "MolGF6131";
+const char* WIFI_SSID = SSID;
+const char* WIFI_PASS = WIFI_PASSWORD;
 
 M5Canvas canvas(&M5.Display);
 HTTPClient http;
@@ -119,11 +121,10 @@ float getBatteryVoltage() {
 void fetchAndDisplay(float batteryVoltage) {
   Serial.println("Requesting display JSON from TRMNL...");
 
-  http.begin("https://trmnl.app/api/display");
+  http.begin(TRMNL_API_DISPLAY);
   http.setTimeout(30000);
   http.setFollowRedirects(HTTPC_FORCE_FOLLOW_REDIRECTS);
 
-  http.addHeader("Access-Token", TRMNL_API_KEY);
   http.addHeader("ID", WiFi.macAddress());
   http.addHeader("Content-Type", "application/json");
   http.addHeader("Battery-Voltage", String(batteryVoltage, 2));

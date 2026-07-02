@@ -1,6 +1,6 @@
-# M5Paper TRMNL Firmware
+# M5PaperS3 TRMNL Firmware
 
-Arduino firmware for using the M5Paper e-ink device as a TRMNL display.
+Arduino firmware for using the M5PaperS3 e-ink device as a TRMNL display.
 
 ## Features
 - Full M5Unified library support (M5EPD deprecated)
@@ -9,27 +9,24 @@ Arduino firmware for using the M5Paper e-ink device as a TRMNL display.
 - Battery voltage monitoring
 - Automatic WiFi retry logic
 - Wake on button press or timer
+- [ ] Use touchscreen to update content on screen
 
 ## Hardware Requirements
-- M5Paper e-ink display (960x540)
+- M5PaperS3 e-ink display (960x540)
 - WiFi network access
 
 ## Installation
 
 ### PlatformIO
 1. Clone this repository
-2. Update WiFi credentials in `m5paper_trmnl.ino`
-3. Set your TRMNL API key
-4. Upload to M5Paper
-
-### Arduino IDE
-- Install M5Unified library
-- Install ArduinoJson library
-- Configure ESP32 board settings
+2. Add `src/secrets.h`
+  1. Set `#define SSID "YourWiFi"`
+  2. Set `#define WIFI_PASSWORD "YourWiFiPassword"`
+  3. Set `#define SERVER_URL "http://YourTerminusInstance/api/display"`
+3. `pio run` or `pio run --target upload -e PaperS3`
 
 ## Configuration
 Edit these values in the code:
-- `TRMNL_API_KEY` - Your TRMNL API key from trmnl.app
 - `WIFI_SSID` - Your WiFi network name
 - `WIFI_PASS` - Your WiFi password
 
