@@ -20,9 +20,9 @@ Arduino firmware for using the M5PaperS3 e-ink device as a TRMNL display.
 ### PlatformIO
 1. Clone this repository
 2. Add `src/secrets.h`
-  1. Set `#define SSID "YourWiFi"`
-  2. Set `#define WIFI_PASSWORD "YourWiFiPassword"`
-  3. Set `#define SERVER_URL "http://YourTerminusInstance/api/display"`
+    1. Set `#define SSID "YourWiFi"`
+    2. Set `#define WIFI_PASSWORD "YourWiFiPassword"`
+    3. Set `#define SERVER_URL "http://YourTerminusInstance/api/display"`
 3. `pio run` or `pio run --target upload -e PaperS3`
 
 ## Configuration
